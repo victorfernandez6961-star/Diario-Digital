@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - Diario Digital</title>
+
+  <!-- Precarga de fuentes para mejorar rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Raleway', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      background-color: #fff8e7;
+      color: #5e503f;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    body.fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    header {
+      background-color: #54463a;
+      color: #f4ebd0;
+      font-family: 'Pacifico', 'Brush Script MT', cursive;
+      font-size: 25px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes fadeInSoft {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes friendlyWave {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(-4deg); }
+      40% { transform: rotate(4deg); }
+      60% { transform: rotate(-2deg); }
+      80% { transform: rotate(2deg); }
+    }
+
+    .mascota {
+      position: absolute;
+      left: 40px;
+      top: 10px;
+      height: 130px;
+      width: auto;
+      z-index: 10;
+      opacity: 0;
+      animation: fadeInSoft 1.5s ease-out forwards, friendlyWave 4s ease-in-out 2s infinite;
+      transform-origin: center bottom;
+    }
+
+    .mascota:hover {
+      animation-play-state: paused;
+      cursor: pointer;
+    }
+
+    @keyframes warmGlowSoft {
+      0%, 90%, 100% {
+        text-shadow: none;
+        color: #f4ebd0;
+      }
+      50% {
+        text-shadow: 0 0 5px #ffe8c2, 0 0 10px #ffd28a, 0 0 18px #ffbf69;
+        color: #fff4d9;
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      animation: fadeInSoft 1.5s ease-out forwards, warmGlowSoft 12s ease-in-out infinite;
+    }
+
+    nav {
+      background-color: #aa9277;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #5e503f;
+      background-color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+
+    section {
+      flex: 1;
+      padding: 40px 20px 80px;
+      text-align: center;
+    }
+
+    @keyframes fadeDown {
+      0% { opacity: 0; transform: translateY(-30px); filter: blur(3px); }
+      60% { opacity: 0.8; transform: translateY(5px); filter: blur(1px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    section h2 {
+      color: #5e503f;
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-family: 'Pacifico', 'Brush Script MT', cursive;
+      animation: fadeDown 1.2s ease-out forwards;
+    }
+
+    section p {
+      font-size: 18px;
+      color: #8b6f47;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+      animation: fadeDown 1.4s ease-out forwards;
+    }
+
+    .imagx {
+      margin: 20px;
+      width: 250px;
+      animation: fadeInSoft 2s ease-out forwards;
+    }
+
+    footer {
+      background-color: #aa9277;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      margin-top: auto;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="mascota-con-cafe.png" class="mascota" alt="Mascota Diario Digital">
+    <h1>DIARIO DIGITAL</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="locales.html">LOCALES</a></li>
+      <li><a href="https://victorfernandez6961-yzjun.wordpress.com" target="_blank">BLOG</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Bienvenido al Diario Digital</h2>
+    <p>"Digitalmente conectados, informados y contentos"</p>
+    <img class="imagx" src="mascota.png" alt="Mascota Diario Digital">
+  </section>
+
+  <footer>
+    &copy; 2025 Diario Digital. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Transición de entrada
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+
+    // Transición de salida entre páginas
+    document.querySelectorAll('a[href]').forEach(link => {
+      const url = new URL(link.href, window.location.origin);
+      // Solo aplicar el efecto a enlaces internos
+      if (url.origin === window.location.origin && !link.hasAttribute('target')) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 500); // sincroniza con la animación CSS
+        });
+      }
+    });
+  </script>
+</body>
+</html>
